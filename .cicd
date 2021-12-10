@@ -46,12 +46,12 @@ galaxy:
   dependencies: []
 
 # Github
-github_active: false
-github_owner: ncr-tooling
+github_active: true
+github_owner: de-it-krachten
 github_repo: ansible-role-acl
 
 # Gitlab
-gitlab_active: true
+gitlab_active: false
 
 # molecule
 molecule_active: true
