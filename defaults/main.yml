@@ -11,4 +11,3 @@ acl_default_group: ''
 
 # Use NFSv4 over POSIX ACLS
 acl_use_nfsv4: false
-
