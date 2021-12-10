@@ -24,10 +24,10 @@ platforms:
 # Ansible galaxy
 galaxy:
   role_name: acl
-  namespace: ncr_tooling
-  description: acl
-  author: ncr-tooling
-  company: NCR
+  namespace: de_it_krachten
+  description: ansible-role-acl
+  author: Mark van Huijstee
+  company: De IT Krachten BV
   license: MIT
   min_ansible_version: 2.9
   platforms:
