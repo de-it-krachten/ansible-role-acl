@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    acl_list: [{'path': '/srv/shares/share1/group1', 'group': 'group1', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group1', 'group': 'group2', 'perms': 'r-x'}, {'path': '/srv/shares/share1/group1', 'group': 'group3', 'perms': '---'}, {'path': '/srv/shares/share1/group2', 'group': 'group2', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group2', 'group': 'group1', 'perms': 'r-x'}]
+  tasks:
+
+    - name: "Include role 'ansible-role-acl'"
+      include_role:
+        name: "ansible-role-acl"

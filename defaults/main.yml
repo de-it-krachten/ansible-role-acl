@@ -1,0 +1,14 @@
+---
+
+# package needed to make (NFSv4) ACLs work
+acl_packages:
+  - acl
+  - nfs4-acl-tools
+
+# User / group to change paths to
+acl_default_user: ''
+acl_default_group: ''
+
+# Use NFSv4 over POSIX ACLS
+acl_use_nfsv4: false
+

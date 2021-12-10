@@ -1,0 +1,82 @@
+---
+
+# Generic
+role: ansible-role-acl
+role_short: acl
+role_description: |
+  WRITE HERE
+
+# Supported platform
+platforms:
+  - name: CentOS 7
+    image: centos7
+  - name: CentOS 8
+    image: centos8
+  - name: Debian 10 (Buster)
+    image: debian10
+  - name: Debian 11 (Bullseye)
+    image: debian11
+  - name: Ubuntu 18.04 LTS
+    image: ubuntu1804
+  - name: Ubuntu 20.04 LTS
+    image: ubuntu2004
+
+# Ansible galaxy
+galaxy:
+  role_name: acl
+  namespace: ncr_tooling
+  description: acl
+  author: ncr-tooling
+  company: NCR
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+    - name: Ubuntu
+      versions:
+        - 18
+        - 20
+  dependencies: []
+
+# Github
+github_active: false
+github_owner: ncr-tooling
+github_repo: ansible-role-acl
+
+# Gitlab
+gitlab_active: true
+
+# molecule
+molecule_active: true
+molecule_platforms:
+  - centos7
+  - centos8
+  - debian10
+  - debian11
+  - ubuntu1804
+  - ubuntu2004
+molecule_vars:
+  converge:
+    acl_list:
+      - path: /srv/shares/share1/group1
+        group: group1
+        perms: rwx
+      - path: /srv/shares/share1/group1
+        group: group2
+        perms: r-x
+      - path: /srv/shares/share1/group1
+        group: group3
+        perms: ---
+      - path: /srv/shares/share1/group2
+        group: group2
+        perms: rwx
+      - path: /srv/shares/share1/group2
+        group: group1
+        perms: r-x

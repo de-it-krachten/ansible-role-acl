@@ -1,0 +1,96 @@
+---
+
+- name: Prepare
+  hosts: all
+  become: yes
+  vars:
+    ci_host: "{{ lookup('env', 'CI_SERVER_HOST') | default('') }}"
+    proxy_ip: 10.158.0.1
+    proxy_port: 3128
+    proxy_use: false
+    proxy_env:
+      HTTP_PROXY: ''
+      HTTPS_PROXY: ''
+
+  tasks:
+
+    - name: Define proxy for labahold
+      set_fact:
+        proxy_env:
+          HTTP_PROXY: "http://{{ proxy_ip }}:{{ proxy_port }}"
+          HTTPS_PROXY: "http://{{ proxy_ip }}:{{ proxy_port }}"
+        proxy_use: true
+      when: ci_host == "labahold.corp.ncr.com"
+
+    - block:
+
+        - name: Configure APT to use proxy
+          copy:
+            content: |
+              Acquire::http::proxy "http://{{ proxy_ip }}:{{ proxy_port }}/";
+              Acquire::https::proxy "http://{{ proxy_ip }}:{{ proxy_port }}/";
+              Acquire::gtp::proxy "ftp://{{ proxy_ip }}:{{ proxy_port }}/";
+            dest: /etc/apt/apt.conf.d/80proxy
+            owner: root
+            group: root
+            mode: "0644"
+          when: proxy_use|bool
+
+        - name: Update APT cache
+          apt:
+            update_cache: yes
+            cache_valid_time: 1
+    
+        - name: Install requirements
+          package:
+            name:
+              - gnupg
+            state: present
+
+        - name: Import GPG key
+          apt_key:
+            url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+          environment: "{{ proxy_env }}"
+ 
+        - name: Add repository
+          apt_repository:
+            repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+            state: present
+            filename: elastic-7.x.list
+            update_cache: true
+    
+        - name: Update APT cache
+          apt:
+            update_cache: yes
+            cache_valid_time: 1
+    
+      when: ansible_os_family == 'Debian'
+    
+    - block:
+
+        - name: Import GPG key
+          rpm_key:
+            key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+          environment: "{{ proxy_env }}"
+
+        - name: Add repository
+          yum_repository:
+            name: elasticsearch-7.x
+            description: "Elasticsearch repository for 7.x packages"
+            baseurl: https://artifacts.elastic.co/packages/7.x/yum
+            gpgcheck: 1
+            gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+            enabled: 1
+
+        - name: Configure DNF to use proxy
+          lineinfile:
+            path: /etc/dnf/dnf.conf
+            line: "proxy=http://{{ proxy_ip }}:{{ proxy_port }}"
+            regexp: "^proxy=.*$"
+          when: proxy_use|bool
+    
+        - name: Update DNF cache
+          dnf:
+            update_cache: yes
+    
+      when: ansible_os_family == 'RedHat'
