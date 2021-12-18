@@ -9,7 +9,7 @@
 - name: Check for existance of directories
   stat:
     path: "{{ item }}"
-  loop: "{{ acls | json_query('[].path') | unique }}"
+  loop: "{{ acl_list | json_query('[].path') | unique }}"
   register: _paths
 
 - name: Create directories (when not existing)
@@ -31,13 +31,13 @@
     owner: "{{ acl_default_user | default(omit) }}"
     group: "{{ acl_default_group | default(omit) }}"
     recurse: yes
-  loop: "{{ acls | json_query('[].path') | unique }}"
+  loop: "{{ acl_list | json_query('[].path') | unique }}"
   when: acl_default_user|length > 0 or acl_default_group|length > 0
   
 - name: Set ACL
   ansible.posix.acl:
     path: "{{ item.path }}"
-    entity: "{{ item.group }}"
+    entity: "{{ item.entity | default(item.group) }}"
     etype: "{{ item.etype | default('group') }}"
     permissions: "{{ item.perms }}"
     state: present
@@ -48,7 +48,7 @@
 - name: Set default ACL
   ansible.posix.acl:
     path: "{{ item.path }}"
-    entity: "{{ item.group }}"
+    entity: "{{ item.entity | default(item.group) }}"
     etype: "{{ item.etype | default('group') }}"
     permissions: "{{ item.perms }}"
     state: present
