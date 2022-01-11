@@ -25,7 +25,7 @@ platforms:
 galaxy:
   role_name: acl
   namespace: de_it_krachten
-  description: ansible-role-acl
+  description: acl
   author: Mark van Huijstee
   company: De IT Krachten BV
   license: MIT
@@ -41,42 +41,82 @@ galaxy:
         - bullseye
     - name: Ubuntu
       versions:
-        - 18
-        - 20
-  dependencies: []
+        - 18.04
+        - 20.04
 
 # Github
-github_active: true
-github_owner: de-it-krachten
-github_repo: ansible-role-acl
+github:
+  active: true
+  self_hosted: false
+  fail_fast: true
+  owner: de-it-krachten
+  repo: ansible-role-acl
 
 # Gitlab
-gitlab_active: false
+gitlab:
+  active: false
 
 # molecule
-molecule_active: true
-molecule_platforms:
-  - centos7
-  - centos8
-  - debian10
-  - debian11
-  - ubuntu1804
-  - ubuntu2004
-molecule_vars:
+molecule:
+  active: true
+  platforms:
+    - centos7
+    - centos8
+    - debian10
+    - debian11
+    - ubuntu1804
+    - ubuntu2004
   converge:
-    acl_list:
-      - path: /srv/shares/share1/group1
-        group: group1
-        perms: rwx
-      - path: /srv/shares/share1/group1
-        group: group2
-        perms: r-x
-      - path: /srv/shares/share1/group1
-        group: group3
-        perms: ---
-      - path: /srv/shares/share1/group2
-        group: group2
-        perms: rwx
-      - path: /srv/shares/share1/group2
-        group: group1
-        perms: r-x
+    playbooks: []
+    vars:
+      acl_list:
+        - path: /srv/shares/share1/group1
+          group: group1
+          perms: rwx
+        - path: /srv/shares/share1/group1
+          group: group2
+          perms: r-x
+        - path: /srv/shares/share1/group1
+          group: group3
+          perms: ---
+        - path: /srv/shares/share1/group2
+          group: group2
+          perms: rwx
+        - path: /srv/shares/share1/group2
+          group: group1
+          perms: r-x
+  prepare:
+    playbooks: []
+    vars: {}
+
+# templates
+ci_templates:
+  - src:  galaxy/templates/meta-main.yml
+    dest: meta/main.yml
+  - src:  yamllint/templates/yamllint
+    dest: .yamllint
+  - src:  github/templates/ci.yml
+    dest: .github/workflows/ci.yml
+    when: github_runner_cloud
+  - src:  github/templates/ci-self-hosted.yml
+    dest: .github/workflows/ci.yml
+    when: github_runner_self_hosted
+  - src:  gitlab/templates/gitlab-ci.yml
+    dest: .gitlab-ci.yml
+    when: gitlab_active
+  - src:  molecule/templates/prepare.yml
+    dest: molecule/default/prepare.yml
+    when: molecule_active
+  - src:  molecule/templates/molecule.yml
+    dest: molecule/default/molecule.yml
+    when: molecule_active
+  - src:  molecule/templates/converge.yml
+    dest: molecule/default/converge.yml
+    when: molecule_active
+    force: false
+#  - src:  molecule/templates/requirements.tmpl
+#    dest: molecule/default/requirements.tmpl
+#    when: molecule_active
+  - src:  git/templates/gitignore
+    dest: .gitignore
+    force: false

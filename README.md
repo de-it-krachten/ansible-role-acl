@@ -23,8 +23,6 @@ Supported platforms
 Role Variables
 --------------
 <pre><code>
-
-
 # package needed to make (NFSv4) ACLs work
 acl_packages:
   - acl
@@ -43,7 +41,6 @@ Example Playbook
 ----------------
 
 <pre><code>
-
 - name: Converge
   hosts: all
   vars:
