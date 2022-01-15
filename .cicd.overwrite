@@ -1,0 +1,6 @@
+generic:
+  role_description: |
+    Manages POSIX ACL on supported systems 
+ci_templates:
+  converge.yml:
+    force: false
