@@ -3,8 +3,7 @@
 
 # ansible-role-acl
 
-WRITE HERE
-
+Manages POSIX ACL on supported systems
 
 Platforms
 --------------
@@ -13,6 +12,8 @@ Supported platforms
 
 - CentOS 7
 - CentOS 8
+- RockyLinux 8
+- AlmaLinux 8
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
@@ -41,7 +42,7 @@ Example Playbook
 ----------------
 
 <pre><code>
-- name: Converge
+- name: sample playbook for role 'acl'
   hosts: all
   vars:
     acl_list:
@@ -53,7 +54,7 @@ Example Playbook
         perms: r-x
       - path: /srv/shares/share1/group1
         group: group3
-        perms: ''
+        perms: '---'
       - path: /srv/shares/share1/group2
         group: group2
         perms: rwx
@@ -68,7 +69,7 @@ Example Playbook
         - group1
         - group2
         - group3
-    - name: Include role 'ansible-role-acl'
+    - name: Include role 'acl'
       include_role:
-        name: ansible-role-acl
+        name: acl
 </pre></code>
