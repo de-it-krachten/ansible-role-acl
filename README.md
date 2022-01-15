@@ -55,7 +55,7 @@ Example Playbook
         perms: r-x
       - path: /srv/shares/share1/group1
         group: group3
-        perms: ''
+        perms: '---'
       - path: /srv/shares/share1/group2
         group: group2
         perms: rwx
