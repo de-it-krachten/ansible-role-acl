@@ -1,5 +1,6 @@
 generic:
-  role_description: Manages POSIX ACL on supported systems
+  role_description: |
+    Manages POSIX ACL on supported systems
 molecule:
   converge:
     vars:
