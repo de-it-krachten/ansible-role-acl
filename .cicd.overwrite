@@ -1,8 +1,12 @@
+---
+
 generic:
   role_description: |
     Manages POSIX ACL on supported systems
+
 molecule:
   converge:
+    pre: converge-pre.yml
     vars:
       acl_list:
         - path: /srv/shares/share1/group1
@@ -20,6 +24,3 @@ molecule:
         - path: /srv/shares/share1/group2
           group: group1
           perms: r-x
-ci_templates:
-  converge.yml:
-    force: false
