@@ -1,0 +1,12 @@
+---
+
+- name: Converge - pre
+  hosts: all
+  tasks:
+    - name: Create groups
+      group:
+        name: '{{ item }}'
+      loop:
+        - group1
+        - group2
+        - group3
