@@ -33,7 +33,7 @@
     recurse: yes
   loop: "{{ acl_list | json_query('[].path') | unique }}"
   when: acl_default_user|length > 0 or acl_default_group|length > 0
-  
+
 - name: Set ACL
   ansible.posix.acl:
     path: "{{ item.path }}"
