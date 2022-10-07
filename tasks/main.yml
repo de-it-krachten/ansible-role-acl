@@ -1,19 +1,19 @@
 ---
 
 - name: Make sure package acl related packages are present
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     state: present
   loop: "{{ acl_packages }}"
 
-- name: Check for existance of directories
-  stat:
+- name: Check for existance of directories  # noqa jinja[invalid]
+  ansible.builtin.stat:
     path: "{{ item }}"
   loop: "{{ acl_list | json_query('[].path') | unique }}"
   register: _paths
 
 - name: Create directories (when not existing)
-  file:
+  ansible.builtin.file:
     path: "{{ item.item }}"
     state: directory
     owner: "root"
@@ -25,8 +25,8 @@
       - "{{ item.item }}"
   when: not item.stat.exists
 
-- name: change ownership recursively
-  file:
+- name: Change ownership recursively  # noqa jinja[invalid]
+  ansible.builtin.file:
     path: "{{ item }}"
     owner: "{{ acl_default_user | default(omit) }}"
     group: "{{ acl_default_group | default(omit) }}"
