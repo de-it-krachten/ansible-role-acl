@@ -6,6 +6,16 @@
 Manages POSIX ACL on supported systems
 
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+- ansible.posix
+
 ## Platforms
 
 Supported platforms
@@ -48,10 +58,11 @@ acl_use_nfsv4: false
 
 
 
+
 ## Example Playbook
 ### molecule/default/converge.yml
 <pre><code>
-- import_playbook: converge-pre.yml
+- ansible.builtin.import_playbook: converge-pre.yml
 
 - name: sample playbook for role 'acl'
   hosts: all
@@ -60,6 +71,6 @@ acl_use_nfsv4: false
     acl_list: [{'path': '/srv/shares/share1/group1', 'group': 'group1', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group1', 'group': 'group2', 'perms': 'r-x'}, {'path': '/srv/shares/share1/group1', 'group': 'group3', 'perms': '---'}, {'path': '/srv/shares/share1/group2', 'group': 'group2', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group2', 'group': 'group1', 'perms': 'r-x'}]
   tasks:
     - name: Include role 'acl'
-      include_role:
+      ansible.builtin.include_role:
         name: acl
 </pre></code>
