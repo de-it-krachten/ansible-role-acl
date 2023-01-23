@@ -27,6 +27,7 @@ Supported platforms
 - RockyLinux 8
 - RockyLinux 9
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
 - Debian 10 (Buster)
@@ -34,8 +35,8 @@ Supported platforms
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 35
 - Fedora 36
+- Fedora 37
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
@@ -62,11 +63,12 @@ acl_use_nfsv4: false
 ## Example Playbook
 ### molecule/default/converge.yml
 <pre><code>
-- ansible.builtin.import_playbook: converge-pre.yml
+- name: sample playbook for role 'acl' pre playbook
+  ansible.builtin.import_playbook: converge-pre.yml
 
 - name: sample playbook for role 'acl'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   vars:
     acl_list: [{'path': '/srv/shares/share1/group1', 'group': 'group1', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group1', 'group': 'group2', 'perms': 'r-x'}, {'path': '/srv/shares/share1/group1', 'group': 'group3', 'perms': '---'}, {'path': '/srv/shares/share1/group2', 'group': 'group2', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group2', 'group': 'group1', 'perms': 'r-x'}]
   tasks:
