@@ -65,6 +65,7 @@ acl_use_nfsv4: false
 <pre><code>
 - name: sample playbook for role 'acl' pre playbook
   ansible.builtin.import_playbook: converge-pre.yml
+  when: molecule_converge_pre is undefined or molecule_converge_pre | bool
 
 - name: sample playbook for role 'acl'
   hosts: all
