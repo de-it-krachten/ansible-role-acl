@@ -13,7 +13,6 @@ Manages POSIX ACL on supported systems
 None
 
 #### Collections
-- community.general
 - ansible.posix
 
 ## Platforms
@@ -32,7 +31,6 @@ Supported platforms
 - AlmaLinux 9
 - SUSE Linux Enterprise 15<sup>1</sup>
 - openSUSE Leap 15
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
@@ -68,12 +66,26 @@ acl_use_nfsv4: false
 - name: sample playbook for role 'acl' pre playbook
   ansible.builtin.import_playbook: converge-pre.yml
   when: molecule_converge_pre is undefined or molecule_converge_pre | bool
-
 - name: sample playbook for role 'acl'
   hosts: all
-  become: "yes"
+  become: 'yes'
   vars:
-    acl_list: [{'path': '/srv/shares/share1/group1', 'group': 'group1', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group1', 'group': 'group2', 'perms': 'r-x'}, {'path': '/srv/shares/share1/group1', 'group': 'group3', 'perms': '---'}, {'path': '/srv/shares/share1/group2', 'group': 'group2', 'perms': 'rwx'}, {'path': '/srv/shares/share1/group2', 'group': 'group1', 'perms': 'r-x'}]
+    acl_list:
+      - path: /srv/shares/share1/group1
+        group: group1
+        perms: rwx
+      - path: /srv/shares/share1/group1
+        group: group2
+        perms: r-x
+      - path: /srv/shares/share1/group1
+        group: group3
+        perms: '---'
+      - path: /srv/shares/share1/group2
+        group: group2
+        perms: rwx
+      - path: /srv/shares/share1/group2
+        group: group1
+        perms: r-x
   tasks:
     - name: Include role 'acl'
       ansible.builtin.include_role:
