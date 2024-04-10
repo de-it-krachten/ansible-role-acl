@@ -21,8 +21,7 @@
     mode: '0770'
   loop: "{{ _paths.results }}"
   loop_control:
-    label:
-      - "{{ item.item }}"
+    label: "{{ item.item }}"
   when: not item.stat.exists
 
 - name: Change ownership recursively  # noqa jinja[invalid]
