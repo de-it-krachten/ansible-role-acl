@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.3.0...v1.3.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* Change loop/label for latest ansible ([14ab662](https://github.com/de-it-krachten/ansible-role-acl/commit/14ab662d47063d750b8a3856e36cd5fcb75148cd))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.2.0...v1.3.0) (2023-08-14)
 
 
