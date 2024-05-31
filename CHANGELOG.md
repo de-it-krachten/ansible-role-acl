@@ -1,3 +1,11 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.3.1...v1.4.0) (2024-05-31)
+
+
+### Features
+
+* Add support for Ubuntu 24.04 / Fedora 40 ([4d35f81](https://github.com/de-it-krachten/ansible-role-acl/commit/4d35f8151d5842a82630376a59d03c75104c58f9))
+* Add support for Ubuntu 24.04 LTS + Fedora 40 ([eac9794](https://github.com/de-it-krachten/ansible-role-acl/commit/eac97949632849eb301a8de6a129eb3d8dd8a5ea))
+
 ## [1.3.1](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.3.0...v1.3.1) (2024-04-10)
 
 
