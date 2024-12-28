@@ -226,17 +226,17 @@ jobs:
             ansible_lint: "ansible-lint>6,<7"
             hetznercloud: True
 
-          - name: fedora39
+          - name: fedora40
             runs_on: ubuntu-22.04
-            distro: fedora39
+            distro: fedora40
             playbook: converge.yml
             ansible: "ansible-core>2.16,<2.17"
             ansible_lint: "ansible-lint>6,<7"
             hetznercloud: True
 
-          - name: fedora40
+          - name: fedora41
             runs_on: ubuntu-22.04
-            distro: fedora40
+            distro: fedora41
             playbook: converge.yml
             ansible: "ansible-core>2.16,<2.17"
             ansible_lint: "ansible-lint>6,<7"
