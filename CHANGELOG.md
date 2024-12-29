@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.4.0...v1.5.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([c52bd7d](https://github.com/de-it-krachten/ansible-role-acl/commit/c52bd7dc574ede9b8d9c1fcce3939343f889fe9a))
+
 # [1.4.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.3.1...v1.4.0) (2024-05-31)
 
 
