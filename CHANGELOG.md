@@ -1,3 +1,19 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.5.0...v1.6.0) (2025-08-04)
+
+
+### Bug Fixes
+
+* Delete unwanted '.ansible' files making 'ansible-galaxy' fail ([b549573](https://github.com/de-it-krachten/ansible-role-acl/commit/b549573de2a768e42ada3ead367a2bee5052e655))
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([f866f84](https://github.com/de-it-krachten/ansible-role-acl/commit/f866f844b30434445f57445963c7a8e6a2a6068d))
+* Add support for Debian 13 (Trixie) ([ca2b08f](https://github.com/de-it-krachten/ansible-role-acl/commit/ca2b08f3bfa28c04ba66ede64318f04f289c6fbd))
+* Add support for OracleLinux 10 ([0eda397](https://github.com/de-it-krachten/ansible-role-acl/commit/0eda397934982f6837aa7397c685ea74ac64f112))
+* Add support for Red Hat Enterprise Linux 10 ([9c5770d](https://github.com/de-it-krachten/ansible-role-acl/commit/9c5770d37b1cc68cb02fe2bb32fb36a46753a8ac))
+* Add support for RockyLinux 10 ([6f16263](https://github.com/de-it-krachten/ansible-role-acl/commit/6f1626313a9665f3494034abfac00709a8d31972))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.4.0...v1.5.0) (2024-12-29)
 
 
