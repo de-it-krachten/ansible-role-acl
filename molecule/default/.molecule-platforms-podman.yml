@@ -86,7 +86,7 @@
   ci: false
   image: docker.io/geerlingguy/docker-ubuntu1804-ansible:latest
 - name: ubuntu2004
-  ci: true
+  ci: false
   image: docker.io/geerlingguy/docker-ubuntu2004-ansible:latest
   privileged: true
   pre_build_image: true
@@ -111,11 +111,14 @@
   ci: false
   image: docker.io/geerlingguy/docker-fedora40-ansible:latest
 - name: fedora41
-  ci: true
+  ci: false
   image: docker.io/geerlingguy/docker-fedora41-ansible:latest
 - name: fedora42
   ci: true
   image: docker.io/geerlingguy/docker-fedora42-ansible:latest
+- name: fedora43
+  ci: true
+  image: docker.io/geerlingguy/docker-fedora43-ansible:latest
 - name: alpine3
   ci: false
   image: docker.io/dropveter/alpine-python3
