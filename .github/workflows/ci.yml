@@ -93,12 +93,16 @@ jobs:
         run: |
           set -e
 
+          release_url=https://github.com/de-it-krachten/cicd-tools/releases/download/v1.6.0/cicd-tools_1.6.0.deb
+          api_url=https://api.github.com/repos/de-it-krachten/cicd-tools/releases/latest
+
           # Install requirements
           sudo apt install curl jq -y
 
           # Get latest release download URL for .deb asset
-          api_url="https://api.github.com/repos/de-it-krachten/cicd-tools/releases/latest"
           url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
+          url=${url:-$release_url}
+
           file=$(basename $url)
           curl -s -L -o $file -s $url
           echo "Install package '$file'"
@@ -391,12 +395,16 @@ jobs:
         run: |
           set -e
 
+          release_url=https://github.com/de-it-krachten/cicd-tools/releases/download/v1.6.0/cicd-tools_1.6.0.deb
+          api_url=https://api.github.com/repos/de-it-krachten/cicd-tools/releases/latest
+
           # Install requirements
           sudo apt install curl jq -y
 
           # Get latest release download URL for .deb asset
-          api_url="https://api.github.com/repos/de-it-krachten/cicd-tools/releases/latest"
           url=$(curl -s $api_url | jq -r '.assets[] | select(.name | endswith(".deb")) | .browser_download_url')
+          url=${url:-$release_url}
+
           file=$(basename $url)
           curl -s -L -o $file -s $url
           echo "Install package '$file'"

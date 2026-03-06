@@ -1,0 +1,45 @@
+rhel7|Red Hat Enterprise Linux 7|false|false
+rhel8|Red Hat Enterprise Linux 8|false|true
+rhel9|Red Hat Enterprise Linux 9|false|true
+rhel10|Red Hat Enterprise Linux 10|false|true
+centos7|CentOS 7|false|false
+centos8|CentOS 8|false|false
+centos8s|CentOS Stream 8|false|false
+centos9s|CentOS Stream 9|false|false
+centos10s|CentOS Stream 10|false|false
+rockylinux8|RockyLinux 8|true|true
+rockylinux9|RockyLinux 9|true|true
+rockylinux10|RockyLinux 10|true|true
+oraclelinux8|OracleLinux 8|true|true
+oraclelinux9|OracleLinux 9|true|true
+oraclelinux10|OracleLinux 10|true|true
+almalinux8|AlmaLinux 8|true|true
+almalinux9|AlmaLinux 9|true|true
+almalinux10|AlmaLinux 10|true|true
+sles15|SUSE Linux Enterprise 15|false|true
+sles16|SUSE Linux Enterprise 16|false|true
+opensuse15|openSUSE Leap 15|true|true
+opensuse16|openSUSE Leap 16|true|true
+opensusetumbleweed|openSUSE Tumbleweed|false|false
+debian10|Debian 10 (Buster)|false|false
+debian11|Debian 11 (Bullseye)|true|true
+debian12|Debian 12 (Bookworm)|true|true
+debian13|Debian 13 (Trixie)|true|true
+ubuntu1804|Ubuntu 18.04 LTS|false|false
+ubuntu2004|Ubuntu 20.04 LTS|false|false
+ubuntu2204|Ubuntu 22.04 LTS|true|true
+ubuntu2404|Ubuntu 24.04 LTS|true|true
+fedora37|Fedora 37|false|false
+fedora38|Fedora 38|false|false
+fedora39|Fedora 39|false|false
+fedora40|Fedora 40|false|false
+fedora41|Fedora 41|false|false
+fedora42|Fedora 42|true|true
+fedora43|Fedora 43|true|true
+alpine3|Alpine 3|false|false
+docker|Docker dind (CI only)|false|false
+win2012r2|Windows Server 2012 R2|false|false
+win2016|Windows Server 2016|false|false
+win2019|Windows Server 2019|false|false
+win2022|Windows Server 2022|false|false
+win2025|Windows Server 2025|false|false
