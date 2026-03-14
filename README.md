@@ -13,7 +13,7 @@ Manages POSIX ACL on supported systems
 None
 
 #### Collections
-- {'name': 'ansible.posix'}
+- ansible.posix
 
 ## Platforms
 
