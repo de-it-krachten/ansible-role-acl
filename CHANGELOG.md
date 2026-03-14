@@ -1,3 +1,11 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.6.0...v1.7.0) (2026-03-14)
+
+
+### Features
+
+* Added support for openSUSE Leap 16 ([114d7a4](https://github.com/de-it-krachten/ansible-role-acl/commit/114d7a48579397974e9df0ad50994372feac1291))
+* Added support for SUSE Linux Enterprise 16 ([7ff1150](https://github.com/de-it-krachten/ansible-role-acl/commit/7ff11504f3f1a3d91d078d1371061cfc4390703d))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.5.0...v1.6.0) (2025-08-04)
 
 
