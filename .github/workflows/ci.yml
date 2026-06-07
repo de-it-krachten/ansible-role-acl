@@ -217,7 +217,7 @@ jobs:
             playbook: converge.yml
             venv: "ansiblecore216"
             ansible: "ansible-core>2.16,<2.17"
-            ansible_lint: "ansible-lint>6,<7"
+            ansible_lint: "ansible-lint>25,<25.11"
             python: "3.12"
             hetznercloud: True
 
@@ -247,7 +247,7 @@ jobs:
             playbook: converge.yml
             venv: "ansiblecore216"
             ansible: "ansible-core>2.16,<2.17"
-            ansible_lint: "ansible-lint>6,<7"
+            ansible_lint: "ansible-lint>25,<25.11"
             python: "3.12"
             hetznercloud: False
 
@@ -277,7 +277,7 @@ jobs:
             playbook: converge.yml
             venv: "ansiblecore216"
             ansible: "ansible-core>2.16,<2.17"
-            ansible_lint: "ansible-lint>6,<7"
+            ansible_lint: "ansible-lint>25,<25.11"
             python: "3.12"
             hetznercloud: False
 
