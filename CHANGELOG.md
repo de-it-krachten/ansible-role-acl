@@ -1,3 +1,12 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.8.0...v1.9.0) (2026-07-23)
+
+
+### Features
+
+* Added support for Fedora 44 ([c903d84](https://github.com/de-it-krachten/ansible-role-acl/commit/c903d84cb035d7767a3b2a33ca27d3df2e197ae6))
+* Added support for Ubuntu 26.04 LTS ([6daeb4d](https://github.com/de-it-krachten/ansible-role-acl/commit/6daeb4df0c62720e5e8b4391798e8202deabb165))
+* Drop support for Fedora 42 ([3d55c6e](https://github.com/de-it-krachten/ansible-role-acl/commit/3d55c6e97c538c92f5fa72fb47b2df1eeb733775))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-acl/compare/v1.7.0...v1.8.0) (2026-03-15)
 
 
